@@ -6,43 +6,11 @@ Predict whether a loan applicant will default, using a heavily imbalanced consum
 
 ```
 credit_risk_modelling/
-├── Week 3 project.ipynb          # Main notebook (Sections 1-7 + appendix)
-├── 0305 Starter Notebook_copy.ipynb  # Starter template (reference)
+├── Week 3 project.ipynb
+├── 0305 Starter Notebook_copy.ipynb
 ├── data/
-│   └── raw-data.csv              # Raw dataset, 119,528 rows x 32 columns (V1-V32)
+│   └── raw-data.csv
 └── README.md
-```
-
-## Requirements
-
-- Python 3.9+
-- Jupyter (Notebook or Lab)
-
-Core libraries:
-
-| Package        | Used for                              |
-|----------------|---------------------------------------|
-| pandas         | Data loading and manipulation         |
-| numpy          | Numeric operations                    |
-| matplotlib     | Plots                                 |
-| seaborn        | Statistical plots, heatmaps           |
-| scikit-learn   | Preprocessing, models, evaluation     |
-
-Optional (used only in the appendix; auto-installed via `pip` when run):
-
-| Package            | Used for                    |
-|--------------------|-----------------------------|
-| missingno          | Missingness map (A.1)       |
-| imbalanced-learn   | SMOTE comparison (A.3)      |
-| statsmodels        | VIF analysis (A.4)          |
-
-On macOS (Homebrew) the appendix installs may hit `externally-managed-environment`. Create a virtual environment before running instead:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter missingno imbalanced-learn statsmodels
-jupyter notebook
 ```
 
 ## Running the notebook
@@ -64,7 +32,7 @@ jupyter notebook
 6. **Model Evaluation & Tuning** — evaluates with precision/recall/F1, ROC-AUC, PR-AUC, confusion matrices and ROC curves (accuracy alone is misleading with 2.2% defaults). The best model by ROC-AUC (HistGradientBoosting) gets light tuning with `RandomizedSearchCV`.
 7. **Using the Model on a New Applicant** — a `prepare_new_applicant()` helper runs one raw applicant through the exact same cleaning/feature/scaling steps, then `predict_applicant()` returns the default probability, prediction, and a 300-850 credit score. Two worked examples score a low-risk and a higher-risk borrower.
 
-### Appendix (extension work)
+###  Extra Checks
 
 - **A.1 Missingness map** — visual missing-value pattern using `missingno`.
 - **A.2 Deletion vs. imputation** — trade-off between rows lost and data kept; imputation wins.
